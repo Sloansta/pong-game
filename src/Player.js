@@ -1,5 +1,5 @@
 // player class will be here.
-export class Player {
+class Player {
     constructor(x) {
         this.x = x;
         this.size = 20;
@@ -18,5 +18,10 @@ export class Player {
 
     moveLeft() {
         this.x--;
+    }
+
+    drawSelf(c) {
+        c.fillStyle = 'white';
+        c.fillRect(this.x, window.innerHeight - this.size, this.size + 10, this.size);
     }
 }
