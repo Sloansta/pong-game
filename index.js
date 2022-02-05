@@ -15,7 +15,7 @@ function render() {
     requestAnimationFrame(render);
     clear();
     draw();
-    //logic();
+    logic();
 }
 render();
 
@@ -28,3 +28,29 @@ function clear() {
     c.fillStyle = 'black';
     c.fillRect(0, 0, WIDTH, HEIGHT);
 }
+
+function logic() {
+    player.movement();
+}
+
+document.addEventListener('keydown', (e) => {
+    switch(e.key) {
+        case 'a':
+            player.moveLeft = true;
+            break;
+        case 'd':
+            player.moveRight = true;
+            break;
+    }
+});
+
+document.addEventListener('keyup', (e) => {
+    switch(e.key) {
+        case 'a': 
+            player.moveLeft = false;
+            break;
+        case 'd':
+            player.moveRight = false;
+            break;
+    }
+});
